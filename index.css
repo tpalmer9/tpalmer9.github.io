@@ -1,0 +1,785 @@
+body, html {
+    margin: 0;
+} /* Left side margin */
+
+
+/* HEADER */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000; 
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #444; 
+}
+
+header h1 {
+    font-family: 'Palatino', serif;
+    font-size: 3em;
+    font-weight: 500;
+    color: #1f1f1f;
+    padding-left: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+nav a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.0em;
+    font-weight: 300;
+    color: #000;
+    padding-left: 30px;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+nav a.active {
+    color: blue;
+}
+
+nav a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+@font-face {
+    font-family: 'CustomFontName';
+    src: url('ThomasCPalmer (4).otf') format('truetype'); /* Adjust path and format as needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
+header h1 {
+    font-family: 'CustomFontName', sans-serif; /* Fallback font as optional */
+    animation: pulse 5s ease-in-out infinite;
+    display: inline-block;
+}
+
+.small-space {
+    display: inline-block;
+    width: 20px; /* Adjust the width to control the space size */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.01); /* Adjust scale as needed */
+    }
+}
+
+@keyframes jitter {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-1px); /* Slight upward motion */
+    }
+    50% {
+        transform: translateY(1px); /* Slight downward motion */
+    }
+    75% {
+        transform: translateY(-1px); /* Returns to initial position */
+    }
+}
+
+header h1 span {
+    display: inline-block;
+    animation: jitter 5s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i)); /* Delay for each letter */
+}
+
+h1 span:nth-child(1) { --i: 1; }
+h1 span:nth-child(2) { --i: 2; }
+h1 span:nth-child(3) { --i: 3; }
+h1 span:nth-child(4) { --i: 4; }
+h1 span:nth-child(5) { --i: 5; }
+h1 span:nth-child(6) { --i: 6; }
+h1 span:nth-child(7) { --i: 7; }
+h1 span:nth-child(8) { --i: 8; }
+h1 span:nth-child(9) { --i: 9; }
+h1 span:nth-child(10) { --i: 10; }
+h1 span:nth-child(11) { --i: 11; }
+h1 span:nth-child(12) { --i: 12; }
+h1 span:nth-child(13) { --i: 13; }
+h1 span:nth-child(14) { --i: 14; }
+h1 span:nth-child(15) { --i: 15; }
+h1 span:nth-child(16) { --i: 16; }
+
+
+/* SECTION HEADERS */
+
+section nav {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid #444;
+    border-bottom: 1px solid #444;
+}
+
+section span {
+  font-size: 0.8em;
+}
+
+section nav a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.0em;
+    font-weight: 300;
+    color: #000000;
+    padding: 0 0;
+    width: 100%;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+section nav a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+hr {
+    margin: 0; 
+    border: none;
+    border-top: 1px solid #444; 
+    width: 100%; 
+}
+
+header hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #444; 
+    width: 100%;
+}
+
+
+/* HOME */
+
+body {
+    font-family: 'roboto', sans-serif;
+    color: #444;
+    margin-top: 135px;
+}
+
+#home {
+    height: 600px;
+    text-align: center;
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 7%;
+    left: 3%; /* Adjust left positioning as needed */
+    background-color: rgba(67, 67, 67, 0.671);
+    color: white;
+    padding: 10px 15px;
+    width: 200px; /* Initial width */
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+}
+
+.overlay-text .overlay-paragraph {
+    display: none; /* Hide paragraph initially */
+    margin-top: 10px;
+}
+
+.overlay-text.expanded {
+    width: 400px; /* Expanded width */
+    height: auto; /* Allows height to adjust with content */
+    padding: 15px 20px;
+}
+
+.overlay-text.expanded .overlay-paragraph {
+    display: block; /* Show paragraph when expanded */
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover entire area */
+    opacity: 0; /* Start with images hidden */
+    transition: opacity 1s ease-in-out;
+}
+
+.about-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.about-image {
+    height: auto;
+    object-fit: cover;
+}
+
+.about-textbox {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #1f1f1f;
+    left: 40px;
+    top: 60px;
+    padding: 20px;
+    width: 360px;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* WORK */
+
+.work-grid-container {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100vw;
+}
+.details-box {
+    display: none; /* Hidden by default */
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f8f8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.details-box.active {
+    display: block;
+    opacity: 1;
+    border-left: 1px solid #444;
+}
+.details-box h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 0;
+}
+
+.details-box p {
+    font-size: 1em;
+    margin-right: 10px;
+    color: #666;
+}
+
+.smaller-image {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    padding-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+
+.work-grid-container .grid-item.hidden {
+    display: none; /* Hide non-active items */
+    transition: transform 0.4s ease;
+}
+
+
+
+.work-grid-container.expanded {
+    width: 20vw; /* Shrink container width to show only one item */
+}
+
+.work-grid-container .grid-item {
+    flex: 0 0 100%; /* Default to full width, but overridden by active class */
+    transition: flex-basis 1.4s ease, transform 1.4s ease;
+}
+
+.work-grid-container .grid-item.active {
+    flex: 0 0 20vw; /* Active item takes 20% of viewport width */
+    border-right: 0;
+}
+
+#close-details {
+    margin-top: 20px;
+    padding: 8px 12px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.work-grid-container .grid-item {
+    flex: 0 0 20vw; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background-color: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.work-grid-container .grid-item .cover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.work-grid-container .grid-item .larger-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    padding-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.work-grid-container .grid-item .title-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 40px;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.work-grid-container a.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit; /* Keeps the default color */
+}
+
+.work-grid-container .grid-item .title-overlay h3 {
+    font-size: 1em;
+    font-weight: 200;
+    color: #333;
+    font-family: 'Palatino', serif;
+    margin: 0;
+}
+
+.work-grid-container .grid-item:hover .cover img {
+    transform: scale(0.8);
+}
+
+
+.work-grid-container .grid-item:hover .title-overlay {
+    opacity: 1;
+}
+
+.work-grid-container .grid-item .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #444;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.work-grid-container .grid-item .description p {
+    font-size: 0.8em;
+    color: #666;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+/* WRITING */
+
+.writing-grid-container {
+    overflow-y: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.writing-grid-container .grid-item {
+    flex: 0 0 20vw; 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+}
+.writing-grid-container .grid-item a {
+    cursor: default;
+    display: inline;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.writing-grid-container .grid-item .description {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #444;
+    box-sizing: border-box;
+}
+
+.writing-grid-container .grid-item .description p {
+    font-size: 0.8em;
+    color: #666;
+    background-color: white;
+    margin: 0;
+    text-align: center;
+    line-height: 20px;
+    padding: 10px;
+}
+
+.writing-grid-container .grid-item h3 {
+    font-size: 1.0em;
+    padding: 100px 60px;
+    margin: -20px 0 10px;
+    font-family: 'Palatino', serif;
+    text-align: center;
+    font-weight: 400;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.writing-grid-container .grid-item:hover h3 {
+    transform: scale(1.2); /* Scale down the contents */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.cave-poem {
+    background-image: url('RockBackground.png');
+    background-size: cover;      /* Ensure the image covers the whole grid item */
+    background-position: 40px 25px;
+    background-repeat: no-repeat; /* Avoid tiling */
+}
+
+.nocturne-poem {
+    background-image: url('MountBackground.png');
+    background-size: 200%;      /* Ensure the image covers the whole grid item */
+    background-repeat: no-repeat; /* Avoid tiling */
+    background-position: top -10px right 20px;
+}
+
+.rings-poem {
+    background-image: url('tree-trunk.jpeg');
+    background-size: 80%;      /* Ensure the image covers the whole grid item */
+    background-repeat: no-repeat; /* Avoid tiling */
+    background-position: bottom;
+}
+
+.meadow-poem {
+    background-image: url('southern-jazz-movin-on-line-drawing-of-a-new-orleans-musician-on-the-AJGKM1.jpg');
+    background-size: 40%;      /* Ensure the image covers the whole grid item */
+    background-repeat: no-repeat; /* Avoid tiling */
+    background-position: bottom;
+}
+
+
+/* MUSIC */
+
+
+#music h2, #writing h2, #work h2 {
+    font-family: 'Palatino', serif;
+    font-size: 2em;
+    font-weight: 500;
+    color: #333;
+    padding: 20px 30px 10px 30px;
+    margin: 0; 
+    background-color: #ebebeb;
+    border-bottom: 0.5px solid #444;
+    border-top: 1px solid #444;
+}
+
+.music-grid-container {
+    overflow-y: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.music-grid-container .grid-item {
+    flex: 0 0 20vw;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.music-grid-container .grid-item .cover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-grid-container .grid-item .cover img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    padding-bottom: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1;
+}
+
+.music-grid-container .grid-item .title-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 4px;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.music-grid-container a.grid-item {
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit; /* Keeps the default color */
+}
+
+.music-grid-container .grid-item .title-overlay h3 {
+    font-size: 1em;
+    font-weight: 200;
+    color: #333;
+    font-family: 'Palatino', serif;
+    margin: 0;
+}
+
+
+
+.music-grid-container .grid-item:hover .cover img {
+    transform: scale(0.8);
+    opacity: 0.3;
+}
+
+.music-grid-container .grid-item:hover .title-overlay {
+    opacity: 1;
+}
+
+
+
+
+.music-grid-container .grid-item .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #444;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.music-grid-container .grid-item .description p {
+    font-size: 0.8em;
+    color: #666;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+
+/* CONTACT */
+
+#contact h2 {
+    font-family: 'Palatino', serif;
+    font-size: 2em;
+    font-weight: 500;
+    color: #333;
+    padding: 20px 30px 10px 30px;
+    margin: 0;
+}
+#contact {
+    background-color: #ebebeb;
+    padding-top: 400px;
+    padding-bottom: 400px;
+    border-bottom: 1px solid #444;
+    border-top: 1px solid #444;
+}
+#contact p a {
+    color: black; 
+    text-decoration: none;
+    padding-left: 30px;
+}
+#contact p a:hover {
+    color: blue; 
+    text-decoration: underline; 
+    font-weight: 400;
+}
+
+
+/* FOOTER */
+
+footer {
+    font-family: 'Palatino', serif;
+    font-size: 0.6em;
+    color: #555;
+    padding-left: 20px;
+}
+
+
+@media screen and (max-width: 1040px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+
+    .work-grid-container {
+        display: block; /* Switch to block layout */
+        grid-template-columns: 1fr; /* Force single-column layout */
+    }
+    
+    .work-grid-container .grid-item {
+        flex: 1 1 100%;
+        height: calc(50vw);
+        aspect-ratio: auto;
+    }
+    
+    .details-box.active {
+        width: 100%; /* Ensure the details box still fits within the new layout */
+    }
+
+}
+
+.work-grid-container .grid-item,
+.writing-grid-container .grid-item,
+.music-grid-container .grid-item {
+    border-right: 1px solid #444; /* Right borders always exist */
+    box-sizing: border-box; /* Ensure borders are within the element */
+}
+
+.music-grid-container > .grid-item:nth-child(1),
+.music-grid-container > .grid-item:nth-child(2),
+.music-grid-container > .grid-item:nth-child(3),
+.music-grid-container > .grid-item:nth-child(4),
+.music-grid-container > .grid-item:nth-child(5) {
+    border-bottom: 1px solid black;
+}
+
+@media (max-width: 1040px) {
+    .music-grid-container > .grid-item:nth-child(1),
+    .music-grid-container > .grid-item:nth-child(2),
+    .music-grid-container > .grid-item:nth-child(3),
+    .music-grid-container > .grid-item:nth-child(4) {
+        border-bottom: 1px solid black;
+    }
+
+    .music-grid-container > .grid-item:nth-child(5) {
+        border-bottom: none;
+    }
+
+    .writing-grid-container > .grid-item:nth-child(1),
+    .writing-grid-container > .grid-item:nth-child(2),
+    .writing-grid-container > .grid-item:nth-child(3),
+    .writing-grid-container > .grid-item:nth-child(4) {
+        border-bottom: 1px solid black;
+    }
+
+    .work-grid-container > .grid-item:nth-child(1),
+    .work-grid-container > .grid-item:nth-child(2) {
+        border-bottom: 1px solid black;
+    }
+
+    .work-grid-container .grid-item.active {
+        border-bottom: 1px solid black;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.7em; /* Reduce font size further */
+    }
+
+    nav a {
+        font-size: 0.5em;
+    }
+
+    .overlay-text {
+        font-size: 0.8em; /* Smaller text for overlay */
+        width: 80%; /* Further reduce width */
+    }
+
+    .about-textbox {
+        width: 90%; /* Adjust width for mobile */
+        padding: 15px;
+    }
+
+    .grid-item h3 {
+        font-size: 0.8em; /* Smaller titles in grids */
+        padding: 10px;
+    }
+
+    .details-box {
+        font-size: 0.9em; /* Ensure content remains readable */
+        padding: 10px;
+    }
+}
+
+/* Smallest Screens */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em; /* Further reduce size */
+    }
+
+    nav a {
+        font-size: 0.7em;
+    }
+
+    .grid-item .description p {
+        font-size: 0.7em; /* Adjust text size */
+    }
+
+    #contact {
+        padding: 30px 10px; /* Reduce padding for smaller devices */
+    }
+}

@@ -1,0 +1,38 @@
+body {
+    background-color: #d8e1dd;
+    color: black;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    margin: 20px;
+}
+
+.writing-container header h2 {
+    margin-bottom: 0;
+    margin-left: 2px;
+  }
+  
+.writing-container article {
+    margin-top: 0;
+  }
+
+
+
+.ext-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.ext-link:hover {
+    color: blue;
+    text-decoration: underline;
+}        
+
+.writing-container {
+    max-width: 1000px;
+}
+
+.writing-container p {
+    line-height: 1.6;
+    margin: 10px 0;
+}

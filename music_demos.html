@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP</title>
+    <link rel="stylesheet" href="demos.css">
+</head>
+<body>
+
+<a href="bio.html" class="ext-link">THOMAS C PALMER</a>
+
+
+MUSIC [ARCHIVE]
+    
+:::::::::::: :::::::::::: :::::::::::: :::::::::::; :::::::::::: :::::::::::: ::::::::::::
+
+
+<strong>Keys</strong>
+
+
+LA No.2<audio id="bark" src="https://res.cloudinary.com/dwiy7hsxc/video/upload/v1748890582/LA_No._2_zbcigs.m4a"></audio>  |  <span class="playToggle" data-audio="bark">▶︎ play</span>
+
+
+<strong>Strings</strong><br>
+
+Thanksgiving<audio id="Thanksgiving" src="https://res.cloudinary.com/dwiy7hsxc/video/upload/Thanksgiving_auhcxp.wav"></audio>  |  <span class="playToggle" data-audio="Thanksgiving">▶︎ play</span>
+
+<script>
+document.querySelectorAll('.playToggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const audioId = button.getAttribute('data-audio');
+    const audio = document.getElementById(audioId);
+
+    // Pause all other audio elements
+    document.querySelectorAll('audio').forEach(a => {
+      if (a !== audio) a.pause();
+    });
+
+    // Toggle play/pause for this one
+    if (audio.paused) {
+      audio.play();
+      button.textContent = '⏸ pause';
+    } else {
+      audio.pause();
+      button.textContent = '▶︎ play';
+    }
+
+    // Reset all other buttons
+    document.querySelectorAll('.playToggle').forEach(otherBtn => {
+      if (otherBtn !== button) {
+        otherBtn.textContent = '▶︎ play';
+      }
+    });
+  });
+});
+</script>
+
+:::::::::::: :::::::::::: :::::::::::: :::::::::::: :::::::::::; :::::::::::: ::::::::::::
+
+
+<em>All tracks performed, recorded, & mixed by Thomas C Palmer</em>
+
+<em>— more coming soon ;)</em>
+
+
+
+
+
+
+<a href="index.html" class="poem-link">&lt;-- back</a>
+
+</body>
+</html>
+
